@@ -25,4 +25,13 @@ jobs:
       - name: Compile Backend-Server
         run: npm run build
 
+  #  "node_modules/*" "coverage/*" "src/*" "test/*" "README.md" "*.git*" "/common" "tsconfig.json" "tsconfig.build.json" "nest-cli.json" 파일 제외 후 레퍼지토리 압축
+      - name: Make a zip file
+        run: zip -r ./$GITHUB_SHA.zip . -x "node_modules/*" "coverage/*" "src/*" "test/*" "README.md" "*.git*" "common/*" "tsconfig.json" "tsconfig.build.json" "nest-cli.json"
+        shell: bash
    
+  # zip 파일 S3 업로드
+      - name: Upload to S3
+        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://${{secrets.S3_BUCKET_NAME}}/${{secrets.PROJECT_NAME}}/$GITHUB_SHA.zip
+
+    
