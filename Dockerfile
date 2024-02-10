@@ -10,7 +10,7 @@ COPY prisma ./prisma
 
 COPY dist ./dist
 
-# COPY .env .
+COPY .env .
 
 COPY node_modules ./node_modules
 
