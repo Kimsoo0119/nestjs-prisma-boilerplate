@@ -17,7 +17,7 @@ jobs:
       - name: Setup node.js
         uses: actions/setup-node@v3.8.1
         with:
-          node-version: 18.x
+          node-version: 18.18.2
 
       - name: Install Backend-Server
         run: npm ci
