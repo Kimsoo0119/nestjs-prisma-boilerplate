@@ -11,6 +11,9 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Dynamically set MY_DATE environment variable
+        run: echo "MY_DATE=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+        
       - name: Checkout Repository
         uses: actions/checkout@v3
 
@@ -40,6 +43,6 @@ jobs:
    
   # zip 파일 S3 업로드
       - name: Upload to S3
-        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://${{secrets.S3_BUCKET_NAME}}/${{secrets.PROJECT_NAME}}/$GITHUB_SHA.zip
+        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://${{secrets.S3_BUCKET_NAME}}/${{secrets.PROJECT_NAME}}/${{ env.MY_DATE }}_$GITHUB_SHA.zip
 
     
