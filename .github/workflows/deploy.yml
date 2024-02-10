@@ -43,6 +43,7 @@ jobs:
    
   # zip 파일 S3 업로드
       - name: Upload to S3
-        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://${{secrets.S3_BUCKET_NAME}}/${{ env.MY_DATE }}_$GITHUB_SHA.zip
+        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://${{secrets.AWS_S3_BUCKET_NAME}}/${{ env.MY_DATE }}_$GITHUB_SHA.zip
+        
 
     
