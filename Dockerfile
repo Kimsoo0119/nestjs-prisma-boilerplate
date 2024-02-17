@@ -1,4 +1,4 @@
-FROM node:18.18.2
+FROM node:18.18.2-alpine
 
 # Docker container 안의 기본 workdir를 /usr/src/app으로 설정.
 WORKDIR /usr/src/app
