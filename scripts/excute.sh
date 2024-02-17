@@ -2,4 +2,4 @@
 
 cd /home/ubuntu/backend
 
-whoami
+npm ci
