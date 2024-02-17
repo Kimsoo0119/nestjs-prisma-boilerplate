@@ -1,5 +1,10 @@
 #!/bin/sh
 
 cd /home/ubuntu/backend
+ls
+npm ci
 
-echo $NODE_PATH
+sudo npm ci
+
+sudo su 
+npm ci
