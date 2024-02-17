@@ -2,4 +2,4 @@
 
 cd /home/ubuntu/backend
 
-npm ci
+echo $NODE_PATH
